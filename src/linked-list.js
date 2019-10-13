@@ -87,21 +87,21 @@ class LinkedList {
     }
 
     reverse() {
-        let currNode = this._head;
-        let prev = null;
-        let next = null;
-  
         if (this.length == 1) {
-          return this;
+            return this;
         }
   
         while(currNode != undefined) {
-          next = currNode.next;
-          prev = currNode.prev;
-          currNode.next = prev;
-          currNode.prev = next;
-          prev = currNode;
-          currNode = next;
+            let currNode = this._head;
+            let prev = null;
+            let next = null;
+
+            next = currNode.next;
+            prev = currNode.prev;
+            currNode.next = prev;
+            currNode.prev = next;
+            prev = currNode;
+            currNode = next;
         }
         this._tail = this._head;
         this._head = prev;
